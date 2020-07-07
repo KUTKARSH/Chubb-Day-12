@@ -1,0 +1,58 @@
+<header class="masthead" style="background-image: url('https://thespaceship.in/blog/wp-content/uploads/2018/01/BG.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1 style = "color:white">Exploration blog</h1>
+            <span style = "color:white" class="subheading">A blog on human possibilities</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div *ngIf = "!clicked" class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview" *ngFor = "let post of posts;let indexOfelement=index;">
+          <a (click) = "viewBlog(indexOfelement)" href="#">
+            <h2 style="color:black" class="post-title">
+              {{post.title}}
+            </h2>
+            <h6 style="color:black" class="post-subtitle">
+              {{post.gist}}
+            </h6>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">Kumar Utkarsh</a>
+            on {{post.date}}</p>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+
+  <header *ngIf = "clicked" class="masthead" >
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>{{posts[idx].title}}</h1>
+            <h6 class="subheading">{{posts[idx].gist}}</h6>
+            <span class="meta">Posted by
+              <a style="color:black" href="#">Kumar Utkarsh</a>
+              on {{posts[idx].date}}<br><br>{{posts[idx].body}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix">
+        <a (click) = "toggleView()" class="btn btn-primary middle" href="#"><<<Go Back</a>
+    </div>
+  </header>
+  
+
+  
